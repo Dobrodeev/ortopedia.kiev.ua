@@ -63,3 +63,36 @@ scripts/                збирання статики, локальна баз
 ```
 
 Нова фотографія: покласти файл у `assets-src/photos/`, виконати `npm run assets`, вказати ім’я без розширення в полі `image` послуги.
+
+## Деплой на Firebase Hosting
+
+Сайт не має форм чи іншої серверної логіки, тому на Firebase публікується як **статичний експорт**:
+Nest.js рендерить усі сторінки з PostgreSQL під час збирання, а готовий HTML віддає Firebase Hosting.
+База та Node.js-сервер на хостингу не потрібні, вистачає безкоштовного тарифу Spark.
+
+Один раз:
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase use --add          # обрати проєкт Firebase; створить .firebaserc
+```
+
+Кожна публікація (локальна база має бути запущена — `npm run db:start`):
+
+```bash
+npm run firebase:deploy     # assets → build → seed → export → firebase deploy --only hosting
+```
+
+Окремі кроки:
+
+| Команда | Що робить |
+| --- | --- |
+| `npm run export` | рендерить сторінки із sitemap.xml у `firebase-dist/` (разом зі статикою, `404.html`, `robots.txt`) |
+| `npm run firebase:build` | повне збирання без публікації |
+| `firebase emulators:start --only hosting` | локальний перегляд результату на http://127.0.0.1:5000 |
+
+Перед експортом перевірте `SITE_URL` у `.env` — ця адреса потрапляє в canonical, sitemap.xml, Open Graph і JSON-LD.
+Власний домен підключається в консолі Firebase: Hosting → Add custom domain.
+
+Після зміни контенту (`src/database/seed-data/`) достатньо знову виконати `npm run firebase:deploy`.

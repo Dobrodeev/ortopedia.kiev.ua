@@ -20,6 +20,11 @@ public/apple-touch-icon.png
 public/icon-512.png
 public/og-image.jpg
 
+# Firebase: статичний експорт і кеш CLI
+firebase-dist/
+.firebase/
+firebase-debug.log
+
 # Логи
 *.log
 npm-debug.log*

@@ -11,7 +11,10 @@
     "seed": "node dist/database/seed.cli.js",
     "db:init": "node scripts/local-db.mjs init",
     "db:start": "node scripts/local-db.mjs start",
-    "db:stop": "node scripts/local-db.mjs stop"
+    "db:stop": "node scripts/local-db.mjs stop",
+    "export": "node scripts/export-static.mjs",
+    "firebase:build": "npm run assets && npm run build && npm run seed && npm run export",
+    "firebase:deploy": "npm run firebase:build && npx firebase-tools deploy --only hosting"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",

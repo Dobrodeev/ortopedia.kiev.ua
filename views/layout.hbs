@@ -23,11 +23,11 @@
 
   <link rel="preload" href="/fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="/vendor/phosphor/phosphor.css">
+  <link rel="stylesheet" href="/fonts/fonts.css?v={{v}}">
+  <link rel="stylesheet" href="/vendor/phosphor/phosphor.css?v={{v}}">
   {{#if usesDataTables}}
-  <link rel="stylesheet" href="/vendor/dataTables.dataTables.min.css">
-  <link rel="stylesheet" href="/vendor/responsive.dataTables.min.css">
+  <link rel="stylesheet" href="/vendor/dataTables.dataTables.min.css?v={{v}}">
+  <link rel="stylesheet" href="/vendor/responsive.dataTables.min.css?v={{v}}">
   {{/if}}
   <link rel="stylesheet" href="/css/main.css?v={{v}}">
 
@@ -57,10 +57,10 @@
 
   <script src="/js/main.js?v={{v}}" defer></script>
   {{#if usesDataTables}}
-  <script src="/vendor/jquery.min.js" defer></script>
-  <script src="/vendor/dataTables.min.js" defer></script>
-  <script src="/vendor/dataTables.responsive.min.js" defer></script>
-  <script src="/vendor/responsive.dataTables.min.js" defer></script>
+  <script src="/vendor/jquery.min.js?v={{v}}" defer></script>
+  <script src="/vendor/dataTables.min.js?v={{v}}" defer></script>
+  <script src="/vendor/dataTables.responsive.min.js?v={{v}}" defer></script>
+  <script src="/vendor/responsive.dataTables.min.js?v={{v}}" defer></script>
   <script src="/js/prices.js?v={{v}}" defer></script>
   {{/if}}
 </body>

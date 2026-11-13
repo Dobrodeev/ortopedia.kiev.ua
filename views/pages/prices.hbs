@@ -1,0 +1,62 @@
+<section class="page-head">
+  <div class="container">
+    {{> breadcrumbs}}
+    <h1 class="page-head__title">Ціни на послуги</h1>
+    <p class="page-head__lead">Вартість послуг медичного центру «Ортопедія VIP» у Києві. Остаточний обсяг лікування визначає лікар після консультації та діагностики.</p>
+  </div>
+</section>
+
+{{#if promo.enabled}}
+<section class="section section--compact" aria-labelledby="promo-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="promo-title">Акційна пропозиція</h2>
+    <div class="promo-banner">
+      <div>
+        <span class="promo__tag"><i class="ph ph-tag" aria-hidden="true"></i> {{promo.title}}</span>
+        <p class="promo-banner__price">{{promo.price}}</p>
+        <p class="promo-banner__note"><i class="ph ph-check-circle" aria-hidden="true"></i> {{promo.note}}</p>
+      </div>
+      <a class="btn btn--accent btn--lg" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+    </div>
+  </div>
+</section>
+{{/if}}
+
+<section class="section section--compact" aria-labelledby="pricelist-title">
+  <div class="container">
+    <header class="section__head section__head--left">
+      <h2 class="section__title" id="pricelist-title">Прайс-лист</h2>
+      <p class="section__subtitle">Скористайтеся пошуком або сортуванням, щоб знайти потрібну послугу.</p>
+    </header>
+    <div class="table-wrap">
+      <table id="price-table" class="display price-table" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">Послуга</th>
+            <th scope="col">Напрям</th>
+            <th scope="col">Вартість</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each prices}}
+          <tr>
+            <td>
+              {{#if serviceSlug}}<a href="/poslugy/{{serviceSlug}}">{{name}}</a>{{else}}<strong>{{name}}</strong>{{/if}}
+              {{#if note}}<span class="price-table__note">{{note}}</span>{{/if}}
+            </td>
+            <td>{{category}}</td>
+            {{#if price}}
+            <td data-order="{{price}}"><span class="price-table__price">{{uah price}}</span></td>
+            {{else}}
+            <td data-order="0"><span class="price-table__ask">Вартість уточнюйте у адміністратора</span></td>
+            {{/if}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><i class="ph ph-info" aria-hidden="true"></i> Уточнити вартість можна за телефоном <a href="{{site.phoneHref}}">{{site.phone}}</a>.</p>
+  </div>
+</section>
+
+{{> cta}}

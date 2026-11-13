@@ -1,0 +1,46 @@
+<div class="contacts">
+  <div class="contacts__info">
+    <ul class="contacts__list">
+      <li>
+        <span class="contacts__icon" aria-hidden="true"><i class="ph ph-map-pin"></i></span>
+        <div>
+          <p class="contacts__label">Адреса</p>
+          <p class="contacts__value">{{site.name}}<br>{{site.address}}</p>
+        </div>
+      </li>
+      <li>
+        <span class="contacts__icon" aria-hidden="true"><i class="ph ph-train-simple"></i></span>
+        <div>
+          <p class="contacts__label">Метро</p>
+          <p class="contacts__value">{{site.metro}}</p>
+        </div>
+      </li>
+      <li>
+        <span class="contacts__icon" aria-hidden="true"><i class="ph ph-phone"></i></span>
+        <div>
+          <p class="contacts__label">Телефон</p>
+          <p class="contacts__value"><a href="{{site.phoneHref}}">{{site.phone}}</a></p>
+        </div>
+      </li>
+      <li>
+        <span class="contacts__icon" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
+        <div>
+          <p class="contacts__label">Email</p>
+          <p class="contacts__value"><a href="mailto:{{site.email}}">{{site.email}}</a></p>
+        </div>
+      </li>
+    </ul>
+    <div class="contacts__actions">
+      <a class="btn btn--accent" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+      <a class="btn btn--outline" href="{{site.mapsRouteUrl}}" target="_blank" rel="noopener">
+        <i class="ph ph-navigation-arrow" aria-hidden="true"></i> Прокласти маршрут
+      </a>
+    </div>
+  </div>
+  <div class="contacts__map">
+    <iframe src="{{site.mapsEmbedUrl}}" title="Медичний центр «Ортопедія VIP» на карті Києва" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <a class="contacts__maplink" href="{{site.mapsPlaceUrl}}" target="_blank" rel="noopener">
+      Відкрити в Google Maps <i class="ph ph-arrow-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>

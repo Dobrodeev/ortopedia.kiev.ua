@@ -1,0 +1,15 @@
+# Альтернатива локальному кластеру: docker compose up -d
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ortopedia
+      POSTGRES_PASSWORD: ortopedia
+      POSTGRES_DB: ortopedia_vip
+    ports:
+      - "5440:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+volumes:
+  pgdata:

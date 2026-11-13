@@ -1,0 +1,35 @@
+# Залежності та збірка
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Секрети та локальні налаштування (зразок — .env.example)
+.env
+.env.*
+!.env.example
+
+# Локальний кластер PostgreSQL
+.pgdata/
+
+# Згенерована статика (створюється командою `npm run assets`)
+public/vendor/
+public/fonts/
+public/img/
+public/favicon.png
+public/apple-touch-icon.png
+public/icon-512.png
+public/og-image.jpg
+
+# Логи
+*.log
+npm-debug.log*
+
+# Редактори та ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Локальні налаштування Claude Code
+.claude/

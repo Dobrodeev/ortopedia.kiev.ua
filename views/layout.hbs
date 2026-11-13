@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{meta.title}}</title>
+  <meta name="description" content="{{meta.description}}">
+  {{#if meta.noindex}}<meta name="robots" content="noindex, follow">{{/if}}
+  <link rel="canonical" href="{{meta.canonical}}">
+  <meta name="theme-color" content="#0b4f6c">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{meta.title}}">
+  <meta property="og:description" content="{{meta.description}}">
+  <meta property="og:url" content="{{meta.canonical}}">
+  <meta property="og:image" content="{{meta.ogImage}}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preload" href="/fonts/manrope-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/vendor/phosphor/phosphor.css">
+  {{#if usesDataTables}}
+  <link rel="stylesheet" href="/vendor/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="/vendor/responsive.dataTables.min.css">
+  {{/if}}
+  <link rel="stylesheet" href="/css/main.css?v={{v}}">
+
+  {{#each jsonLd}}
+  <script type="application/ld+json">{{json this}}</script>
+  {{/each}}
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+
+  {{> header}}
+
+  <main id="main" tabindex="-1">
+    {{{body}}}
+  </main>
+
+  {{> footer}}
+
+  <nav class="mobile-bar" aria-label="Швидкі дії">
+    <a class="mobile-bar__btn mobile-bar__btn--call" href="{{site.phoneHref}}">
+      <i class="ph ph-phone" aria-hidden="true"></i> Зателефонувати
+    </a>
+    <a class="mobile-bar__btn mobile-bar__btn--book" href="{{site.bookingUrl}}" target="_blank" rel="noopener">
+      <i class="ph ph-calendar-check" aria-hidden="true"></i> Записатися
+    </a>
+  </nav>
+
+  <script src="/js/main.js?v={{v}}" defer></script>
+  {{#if usesDataTables}}
+  <script src="/vendor/jquery.min.js" defer></script>
+  <script src="/vendor/dataTables.min.js" defer></script>
+  <script src="/vendor/dataTables.responsive.min.js" defer></script>
+  <script src="/vendor/responsive.dataTables.min.js" defer></script>
+  <script src="/js/prices.js?v={{v}}" defer></script>
+  {{/if}}
+</body>
+</html>

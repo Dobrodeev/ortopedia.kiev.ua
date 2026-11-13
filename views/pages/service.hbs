@@ -1,0 +1,117 @@
+<article>
+  <section class="service-hero">
+    <div class="container service-hero__inner">
+      <div class="service-hero__content">
+        {{> breadcrumbs}}
+        <p class="eyebrow"><i class="ph {{service.icon}}" aria-hidden="true"></i> {{category.title}}</p>
+        <h1 class="service-hero__title">{{service.h1}}</h1>
+        <p class="lead">{{service.lead}}</p>
+        <div class="hero__actions">
+          <a class="btn btn--accent btn--lg" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+          <a class="btn btn--outline btn--lg" href="{{site.phoneHref}}"><i class="ph ph-phone" aria-hidden="true"></i> {{site.phone}}</a>
+        </div>
+        {{#if promo.enabled}}
+        <p class="service-hero__promo"><i class="ph ph-tag" aria-hidden="true"></i> {{promo.title}}: {{promo.price}}. {{promo.note}}.</p>
+        {{/if}}
+      </div>
+      <div class="service-hero__media">
+        {{> picture img=service.image alt=service.imageAlt sizes="(min-width: 1024px) 460px, 100vw" eager=true}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="problem-title">
+    <div class="container split">
+      <div class="split__text">
+        <h2 class="section__title" id="problem-title">Коли варто звернутися</h2>
+        <p>{{service.problem}}</p>
+      </div>
+      <div class="panel">
+        <h3 class="panel__title">Кому підходить послуга</h3>
+        <ul class="checklist checklist--compact">
+          {{#each service.audience}}
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i> {{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="process-title">
+    <div class="container">
+      <header class="section__head">
+        <h2 class="section__title" id="process-title">Як проходить прийом</h2>
+        <p class="section__subtitle">Консультація, діагностика та початок лікування — за один візит, якщо для цього є показання.</p>
+      </header>
+      <ol class="steps">
+        {{#each service.steps}}
+        <li class="steps__item">
+          <span class="steps__num" aria-hidden="true">{{pad2 @index}}</span>
+          <h3 class="steps__title">{{title}}</h3>
+          <p>{{text}}</p>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="conditions-title">
+    <div class="container two-col">
+      <div>
+        <h2 class="section__title" id="conditions-title">Які стани лікуємо</h2>
+        <ul class="tags">
+          {{#each service.conditions}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div>
+        <h2 class="section__title">Переваги підходу</h2>
+        <ul class="checklist checklist--compact">
+          {{#each service.benefits}}
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i> {{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{#if service.disclaimer}}
+    <div class="container">
+      <p class="note"><i class="ph ph-info" aria-hidden="true"></i> {{service.disclaimer}}</p>
+    </div>
+    {{/if}}
+  </section>
+
+  <section class="section section--tint" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+      <header class="section__head">
+        <h2 class="section__title" id="faq-title">Поширені запитання</h2>
+      </header>
+      <div class="faq">
+        {{#each service.faqs}}
+        <details class="faq__item">
+          <summary><h3>{{question}}</h3><i class="ph ph-plus" aria-hidden="true"></i></summary>
+          <p>{{answer}}</p>
+        </details>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</article>
+
+{{> cta title="Запишіться на консультацію ортопеда-травматолога"}}
+
+<section class="section" aria-labelledby="others-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="others-title">Інші послуги</h2>
+    </header>
+    <div class="cards">
+      {{#each others}}
+      {{> servicecard}}
+      {{/each}}
+    </div>
+    <div class="center">
+      <a class="btn btn--outline" href="/poslugy">Усі послуги</a>
+    </div>
+  </div>
+</section>

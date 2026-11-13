@@ -1,0 +1,123 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">{{home.hero.eyebrow}}</p>
+      <h1 class="hero__title" id="hero-title">{{home.hero.title}}</h1>
+      <p class="hero__subtitle">{{home.hero.subtitle}}</p>
+      <ul class="checklist">
+        {{#each home.hero.bullets}}
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i> {{this}}</li>
+        {{/each}}
+      </ul>
+      {{> promo}}
+      <div class="hero__actions">
+        <a class="btn btn--accent btn--lg" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+        <a class="btn btn--outline btn--lg" href="#poslugy">Переглянути послуги</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="hero__photo">
+        {{> picture img="hero" alt="Лікар ортопед-травматолог оглядає пацієнта в кабінеті з апаратом УЗД" sizes="(min-width: 1024px) 520px, 100vw" eager=true}}
+      </div>
+      <div class="hero__trust">
+        <span class="hero__trust-icon" aria-hidden="true"><i class="ph ph-shield-check"></i></span>
+        <p>{{home.hero.trustCard}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="strip">
+      {{#each home.hero.strip}}
+      <li><i class="ph {{icon}}" aria-hidden="true"></i> {{text}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pain-title">
+  <div class="container split">
+    <div class="split__text">
+      <h2 class="section__title" id="pain-title">{{home.pain.title}}</h2>
+      <p class="lead">{{home.pain.text}}</p>
+      <div class="goals">
+        <h3 class="goals__title">{{home.pain.goalsTitle}}</h3>
+        <ul class="goals__list">
+          {{#each home.pain.goals}}
+          <li><i class="ph ph-check" aria-hidden="true"></i> {{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <a class="btn btn--accent" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+    </div>
+    <div class="panel">
+      <h3 class="panel__title">{{home.pain.includedTitle}}</h3>
+      <ol class="included">
+        {{#each home.pain.included}}
+        <li>
+          <span class="included__icon" aria-hidden="true"><i class="ph {{icon}}"></i></span>
+          <span>{{text}}</span>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="poslugy" aria-labelledby="catalog-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="catalog-title">{{home.catalog.title}}</h2>
+      <p class="section__subtitle">{{home.catalog.subtitle}}</p>
+    </header>
+    <div class="cards">
+      {{#each services}}
+      {{> servicecard}}
+      {{/each}}
+    </div>
+    <p class="note"><i class="ph ph-info" aria-hidden="true"></i> Показання та метод лікування визначає лікар після очної консультації й діагностики.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="steps-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="steps-title">{{home.steps.title}}</h2>
+    </header>
+    <ol class="steps">
+      {{#each home.steps.items}}
+      <li class="steps__item">
+        <span class="steps__num" aria-hidden="true">{{pad2 @index}}</span>
+        <h3 class="steps__title">{{title}}</h3>
+        <p>{{text}}</p>
+      </li>
+      {{/each}}
+    </ol>
+    <div class="center">
+      <a class="btn btn--accent" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" aria-labelledby="approach-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="approach-title">{{home.approach.title}}</h2>
+    </header>
+    <ul class="approach">
+      {{#each home.approach.items}}
+      <li><i class="ph ph-check-circle" aria-hidden="true"></i> <span>{{this}}</span></li>
+      {{/each}}
+    </ul>
+    <p class="approach__result">{{home.approach.result}}</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="contacts-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="contacts-title">{{home.contacts.title}}</h2>
+      <p class="section__subtitle">Приймаємо пацієнтів із Києва та Київської області.</p>
+    </header>
+    {{> contacts}}
+  </div>
+</section>

@@ -1,0 +1,107 @@
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span class="topbar__name">{{site.name}}</span>
+    <span class="topbar__item"><i class="ph ph-map-pin" aria-hidden="true"></i> {{site.address}}</span>
+    <span class="topbar__item"><i class="ph ph-train-simple" aria-hidden="true"></i> {{site.metro}}</span>
+    <a class="topbar__call" href="{{site.phoneHref}}">
+      <i class="ph ph-phone" aria-hidden="true"></i>
+      <span class="topbar__call-label">Зателефонувати</span>
+      <span class="topbar__phone">{{site.phone}}</span>
+    </a>
+  </div>
+</div>
+
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="logo" href="/" aria-label="{{site.name}} — на головну">
+      <span class="logo__mark" aria-hidden="true">VIP</span>
+      <span class="logo__text">
+        <span class="logo__name">Ортопедія VIP</span>
+        <span class="logo__sub">{{site.subtitle}}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Головне меню">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="/" {{#if (eq nav 'home')}}aria-current="page"{{/if}}>Головна</a></li>
+        <li><a class="nav__link" href="/pro-nas" {{#if (eq nav 'about')}}aria-current="page"{{/if}}>Про нас</a></li>
+        <li class="nav__item--mega" data-mega>
+          <button class="nav__link nav__link--btn{{#if (eq nav 'services')}} is-current{{/if}}" type="button" aria-expanded="false" aria-controls="mega-menu" data-mega-toggle>
+            Послуги <i class="ph ph-caret-down" aria-hidden="true"></i>
+          </button>
+          <div class="mega" id="mega-menu" data-mega-panel hidden>
+            <div class="container mega__inner">
+              {{#each categories}}
+              <div class="mega__col">
+                <p class="mega__title"><i class="ph {{icon}}" aria-hidden="true"></i> {{title}}</p>
+                <ul class="mega__list">
+                  {{#each services}}
+                  <li><a href="/poslugy/{{slug}}">{{menuTitle}}</a></li>
+                  {{/each}}
+                </ul>
+              </div>
+              {{/each}}
+              <div class="mega__footer">
+                <a class="link-arrow" href="/poslugy">Усі послуги <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a class="nav__link" href="/tsiny" {{#if (eq nav 'prices')}}aria-current="page"{{/if}}>Ціни</a></li>
+        <li><a class="nav__link" href="/kontakty" {{#if (eq nav 'contacts')}}aria-current="page"{{/if}}>Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" href="{{site.phoneHref}}">
+        <i class="ph ph-phone" aria-hidden="true"></i> {{site.phone}}
+      </a>
+      <a class="btn btn--accent header__book" href="{{site.bookingUrl}}" target="_blank" rel="noopener">
+        <span class="header__book-full">Записатися на консультацію</span>
+        <span class="header__book-short">Записатися</span>
+      </a>
+      <button class="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="drawer" data-drawer-open>
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" data-drawer hidden>
+  <div class="drawer__backdrop" data-drawer-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Меню сайту">
+    <div class="drawer__head">
+      <span class="drawer__title">Меню</span>
+      <button class="drawer__close" type="button" aria-label="Закрити меню" data-drawer-close>
+        <i class="ph ph-x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav aria-label="Мобільне меню">
+      <ul class="drawer__list">
+        <li><a href="/" {{#if (eq nav 'home')}}aria-current="page"{{/if}}>Головна</a></li>
+        <li><a href="/pro-nas" {{#if (eq nav 'about')}}aria-current="page"{{/if}}>Про нас</a></li>
+        <li>
+          <details class="drawer__group" {{#if (eq nav 'services')}}open{{/if}}>
+            <summary>Послуги <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+            <ul class="drawer__sub">
+              <li><a href="/poslugy"><strong>Усі послуги</strong></a></li>
+              {{#each categories}}
+              <li class="drawer__cat">{{title}}</li>
+              {{#each services}}
+              <li><a href="/poslugy/{{slug}}">{{menuTitle}}</a></li>
+              {{/each}}
+              {{/each}}
+            </ul>
+          </details>
+        </li>
+        <li><a href="/tsiny" {{#if (eq nav 'prices')}}aria-current="page"{{/if}}>Ціни</a></li>
+        <li><a href="/kontakty" {{#if (eq nav 'contacts')}}aria-current="page"{{/if}}>Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="drawer__contacts">
+      <a class="btn btn--accent btn--block" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+      <a class="btn btn--outline btn--block" href="{{site.phoneHref}}"><i class="ph ph-phone" aria-hidden="true"></i> {{site.phone}}</a>
+      <p class="drawer__address">{{site.address}}, {{site.metro}}</p>
+    </div>
+  </div>
+</div>

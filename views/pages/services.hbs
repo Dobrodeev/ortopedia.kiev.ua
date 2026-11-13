@@ -1,0 +1,34 @@
+<section class="page-head">
+  <div class="container">
+    {{> breadcrumbs}}
+    <h1 class="page-head__title">Послуги медичного центру «Ортопедія VIP»</h1>
+    <p class="page-head__lead">Комплексна допомога при захворюваннях опорно-рухового апарату та хребта для дорослих і дітей від 5 років у Києві.</p>
+    <ul class="chips" aria-label="Напрями">
+      {{#each categories}}
+      <li><a class="chip" href="#{{slug}}"><i class="ph {{icon}}" aria-hidden="true"></i> {{title}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
+
+{{#each categories}}
+<section class="section section--compact" id="{{slug}}" aria-labelledby="cat-{{slug}}">
+  <div class="container">
+    <header class="section__head section__head--left">
+      <h2 class="section__title" id="cat-{{slug}}">{{title}}</h2>
+      <p class="section__subtitle">{{description}}</p>
+    </header>
+    <div class="cards">
+      {{#each services}}
+      {{> servicecard}}
+      {{/each}}
+    </div>
+  </div>
+</section>
+{{/each}}
+
+<div class="container">
+  <p class="note"><i class="ph ph-info" aria-hidden="true"></i> Показання та метод лікування визначає лікар після очної консультації й діагностики.</p>
+</div>
+
+{{> cta}}

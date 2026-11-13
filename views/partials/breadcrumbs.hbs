@@ -1,0 +1,15 @@
+{{#if breadcrumbs}}
+<nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
+  <ol>
+    {{#each breadcrumbs}}
+    <li>
+      {{#if @last}}
+      <span aria-current="page">{{name}}</span>
+      {{else}}
+      <a href="{{path}}">{{name}}</a>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ol>
+</nav>
+{{/if}}

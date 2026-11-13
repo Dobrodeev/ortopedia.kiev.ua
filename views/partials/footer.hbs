@@ -1,0 +1,56 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="logo logo--light" href="/" aria-label="{{site.name}} — на головну">
+        <span class="logo__mark" aria-hidden="true">VIP</span>
+        <span class="logo__text">
+          <span class="logo__name">Ортопедія VIP</span>
+          <span class="logo__sub">{{site.subtitle}}</span>
+        </span>
+      </a>
+      <p class="footer__about">{{site.description}}</p>
+      {{#if socials.length}}
+      <ul class="footer__socials" aria-label="Соціальні мережі">
+        {{#each socials}}
+        <li><a href="{{url}}" target="_blank" rel="noopener" aria-label="{{name}}"><i class="ph {{icon}}" aria-hidden="true"></i></a></li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+
+    <nav class="footer__col" aria-label="Швидкі посилання">
+      <h2 class="footer__title">Навігація</h2>
+      <ul>
+        <li><a href="/">Головна</a></li>
+        <li><a href="/pro-nas">Про нас</a></li>
+        <li><a href="/poslugy">Послуги</a></li>
+        <li><a href="/tsiny">Ціни</a></li>
+        <li><a href="/kontakty">Контакти</a></li>
+        <li><a href="/polityka-konfidentsiinosti">Політика конфіденційності</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer__col footer__col--wide" aria-label="Послуги">
+      <h2 class="footer__title">Послуги</h2>
+      <ul class="footer__services">
+        {{#each services}}
+        <li><a href="/poslugy/{{slug}}">{{menuTitle}}</a></li>
+        {{/each}}
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <h2 class="footer__title">Контакти</h2>
+      <ul class="footer__contacts">
+        <li><i class="ph ph-phone" aria-hidden="true"></i> <a href="{{site.phoneHref}}">{{site.phone}}</a></li>
+        <li><i class="ph ph-envelope-simple" aria-hidden="true"></i> <a href="mailto:{{site.email}}">{{site.email}}</a></li>
+        <li><i class="ph ph-map-pin" aria-hidden="true"></i> <span>{{site.address}}<br>{{site.metro}}</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {{year}} {{site.name}}. Усі права захищені.</p>
+    <p class="footer__note">Інформація на сайті не є підставою для самолікування. Необхідна консультація лікаря.</p>
+  </div>
+</footer>

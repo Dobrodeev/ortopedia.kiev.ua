@@ -1,0 +1,13 @@
+<article class="card">
+  <a class="card__media" href="/poslugy/{{slug}}" tabindex="-1" aria-hidden="true">
+    {{> picture img=image alt=""}}
+  </a>
+  <div class="card__body">
+    <span class="card__icon" aria-hidden="true"><i class="ph {{icon}}"></i></span>
+    <h3 class="card__title"><a href="/poslugy/{{slug}}">{{title}}</a></h3>
+    <p class="card__text">{{summary}}</p>
+    <a class="link-arrow card__more" href="/poslugy/{{slug}}" aria-label="Детальніше: {{title}}">
+      Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</article>

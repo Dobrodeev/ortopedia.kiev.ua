@@ -1,0 +1,100 @@
+<section class="service-hero">
+  <div class="container service-hero__inner">
+    <div class="service-hero__content">
+      {{> breadcrumbs}}
+      <p class="eyebrow">Про нас</p>
+      <h1 class="service-hero__title">Медичний центр «Ортопедія VIP» {{site.subtitle}}</h1>
+      <p class="lead">Ми спеціалізуємося на ортопедії, травматології, лікуванні болю та відновленні руху. Допомагаємо дорослим і дітям від 5 років у Києві.</p>
+      <div class="hero__actions">
+        <a class="btn btn--accent btn--lg" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися на консультацію</a>
+        <a class="btn btn--outline btn--lg" href="/poslugy">Наші послуги</a>
+      </div>
+    </div>
+    <div class="service-hero__media">
+      {{> picture img="pryiom" alt="Лікар проводить огляд пацієнта в кабінеті медичного центру «Ортопедія VIP»" sizes="(min-width: 1024px) 460px, 100vw" eager=true}}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="focus-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="focus-title">Наш підхід</h2>
+      <p class="section__subtitle">Ми лікуємо не симптоми, а причину болю: знаходимо джерело проблеми та одразу починаємо лікування.</p>
+    </header>
+    <div class="features">
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-target"></i></span>
+        <h3>З’ясовуємо причину болю</h3>
+        <p>Біль у спині чи суглобі — це наслідок. На прийомі лікар шукає, що саме його викликає: зміни в суглобі, м’язовий спазм, перекіс таза чи порушення постави.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-wave-sine"></i></span>
+        <h3>Діагностика на першому візиті</h3>
+        <p>Первинний прийом включає консультацію, огляд і діагностику, зокрема УЗД. Вам не потрібно окремо записуватися на обстеження, щоб отримати діагноз.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-first-aid-kit"></i></span>
+        <h3>Лікування починається одразу</h3>
+        <p>За показаннями лікування розпочинається вже на першому прийомі. Можливі зменшення болю та запалення, усунення м’язового спазму, покращення рухливості.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-hand-heart"></i></span>
+        <h3>Персональний план</h3>
+        <p>Кожен пацієнт отримує зрозуміле пояснення свого стану та індивідуальний план відновлення — з урахуванням діагнозу, віку та способу життя.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" aria-labelledby="spec-title">
+  <div class="container split split--media">
+    <div class="split__photo">
+      {{> picture img="sportsmeny" alt="Процедура на колінному суглобі під контролем УЗД" sizes="(min-width: 1024px) 480px, 100vw"}}
+    </div>
+    <div class="split__text">
+      <h2 class="section__title" id="spec-title">Спеціалізація центру</h2>
+      <p>Медичний центр «Ортопедія VIP» працює із захворюваннями опорно-рухового апарату та хребта. Основні напрями — ортопедія, травматологія, лікування болю та відновлення руху.</p>
+      <ul class="checklist checklist--compact">
+        {{#each home.approach.items}}
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i> {{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="who-title">
+  <div class="container split split--media split--reverse">
+    <div class="split__text">
+      <h2 class="section__title" id="who-title">Допомога дорослим і дітям від 5 років</h2>
+      <p>До нас звертаються з болем у спині, шиї та суглобах, після травм, зі спортивними перевантаженнями, порушенням постави. Дітей приймаємо від 5 років: сколіоз, порушення постави, перекіс таза, різна довжина ніг, плоскостопість.</p>
+      <p>Більшість процедур проводиться амбулаторно, без госпіталізації. Якщо є можливість обійтися без операції та тривалого відновлення — ми обираємо саме такий шлях.</p>
+      <ul class="chips">
+        {{#each categories}}
+        <li><a class="chip" href="/poslugy#{{slug}}"><i class="ph {{icon}}" aria-hidden="true"></i> {{title}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="split__photo">
+      {{> picture img="postava" alt="Лікар оцінює поставу пацієнтки під час огляду" sizes="(min-width: 1024px) 480px, 100vw"}}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" aria-labelledby="gallery-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="gallery-title">Як проходять прийоми</h2>
+      <p class="section__subtitle">Фотографії з кабінетів медичного центру.</p>
+    </header>
+    <ul class="gallery">
+      <li>{{> picture img="hero" alt="Ортопедичний огляд кульшового суглоба" sizes="(min-width: 768px) 25vw, 50vw"}}</li>
+      <li>{{> picture img="ineksii-v-sugloby" alt="Ін’єкція в плечовий суглоб під контролем УЗД" sizes="(min-width: 768px) 25vw, 50vw"}}</li>
+      <li>{{> picture img="bil-u-spyni" alt="Мануальна корекція спини" sizes="(min-width: 768px) 25vw, 50vw"}}</li>
+      <li>{{> picture img="punktsiia-sugloba" alt="Маніпуляція в процедурному кабінеті" sizes="(min-width: 768px) 25vw, 50vw"}}</li>
+    </ul>
+  </div>
+</section>
+
+{{> cta}}

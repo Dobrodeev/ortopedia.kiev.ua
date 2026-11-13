@@ -1,0 +1,42 @@
+<section class="page-head">
+  <div class="container">
+    {{> breadcrumbs}}
+    <h1 class="page-head__title">Контакти</h1>
+    <p class="page-head__lead">{{site.name}} розташований у Києві, поруч зі станцією метро «Звіринецька». Приймаємо пацієнтів із Києва та Київської області.</p>
+  </div>
+</section>
+
+<section class="section section--compact" aria-labelledby="visit-title">
+  <div class="container">
+    <h2 class="section__title" id="visit-title">{{home.contacts.title}}</h2>
+    {{> contacts}}
+  </div>
+</section>
+
+<section class="section section--tint" aria-labelledby="how-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 class="section__title" id="how-title">Як записатися на прийом</h2>
+    </header>
+    <div class="features features--3">
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-calendar-check"></i></span>
+        <h3>Онлайн</h3>
+        <p>Оберіть зручний час на сторінці онлайн-запису.</p>
+        <a class="link-arrow" href="{{site.bookingUrl}}" target="_blank" rel="noopener">Записатися онлайн <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-phone"></i></span>
+        <h3>Телефоном</h3>
+        <p>Зателефонуйте — адміністратор допоможе обрати зручний час консультації.</p>
+        <a class="link-arrow" href="{{site.phoneHref}}">{{site.phone}} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
+        <h3>Електронною поштою</h3>
+        <p>Напишіть нам, якщо маєте запитання щодо прийому.</p>
+        <a class="link-arrow" href="mailto:{{site.email}}">{{site.email}} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</section>

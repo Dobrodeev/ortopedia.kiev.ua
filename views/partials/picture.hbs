@@ -1,0 +1,5 @@
+<picture>
+  <source type="image/avif" srcset="/img/{{img}}-480.avif 480w, /img/{{img}}-960.avif 960w" sizes="{{#if sizes}}{{sizes}}{{else}}(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw{{/if}}">
+  <source type="image/webp" srcset="/img/{{img}}-480.webp 480w, /img/{{img}}-960.webp 960w" sizes="{{#if sizes}}{{sizes}}{{else}}(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw{{/if}}">
+  <img src="/img/{{img}}-960.webp" alt="{{alt}}" width="960" height="1280" {{#if eager}}fetchpriority="high" decoding="async"{{else}}loading="lazy" decoding="async"{{/if}}>
+</picture>

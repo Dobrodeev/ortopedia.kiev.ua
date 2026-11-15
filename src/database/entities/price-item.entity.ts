@@ -18,6 +18,10 @@ export class PriceItem {
   @Column({ type: 'int', nullable: true })
   price: number | null;
 
+  /** true — ціна «від …» */
+  @Column({ type: 'boolean', default: false })
+  priceFrom: boolean;
+
   @Column({ type: 'varchar', length: 240, nullable: true })
   note: string | null;
 

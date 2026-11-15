@@ -52,6 +52,7 @@ export class SeedService {
         PriceItem,
         prices.map((p, i) => ({
           ...p,
+          priceFrom: p.priceFrom ?? false,
           note: p.note ?? null,
           serviceSlug: p.serviceSlug ?? null,
           sortOrder: i + 1,

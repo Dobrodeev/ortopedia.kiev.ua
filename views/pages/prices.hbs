@@ -46,7 +46,7 @@
             </td>
             <td>{{category}}</td>
             {{#if price}}
-            <td data-order="{{price}}"><span class="price-table__price">{{uah price}}</span></td>
+            <td data-order="{{price}}"><span class="price-table__price">{{#if priceFrom}}від {{/if}}{{uah price}}</span></td>
             {{else}}
             <td data-order="0"><span class="price-table__ask">Вартість уточнюйте у адміністратора</span></td>
             {{/if}}

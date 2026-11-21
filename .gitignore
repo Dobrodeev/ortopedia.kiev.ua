@@ -38,3 +38,6 @@ desktop.ini
 
 # Локальні налаштування Claude Code
 .claude/
+
+# Звіти аудитів
+reports/

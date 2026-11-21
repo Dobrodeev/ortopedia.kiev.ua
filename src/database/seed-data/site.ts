@@ -9,6 +9,17 @@ export const site = {
   subtitle: 'лікаря Величка В. М.',
   description:
     'Ортопедія, травматологія та лікування болю у хребті й суглобах для дорослих і дітей від 5 років. Консультація, УЗД і початок лікування за один візит.',
+  /** Лікар — для Physician schema та блоку «Медично перевірено» */
+  doctorName: 'Величко В. М.',
+  doctorTitle: 'лікар ортопед-травматолог',
+  /** Дата останньої медичної перевірки текстів послуг (YYYY-MM-DD) — оновлюйте при перегляді */
+  lastReviewed: '2026-11-21',
+  priceRange: 'від 1500 грн',
+  /** Години роботи (як у Google Maps) — для openingHoursSpecification */
+  openingHours: [
+    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '13:00', closes: '17:00' },
+    { days: ['Friday', 'Saturday', 'Sunday'], opens: '14:00', closes: '17:00' },
+  ],
   phone: '+38 063 441 90 75',
   phoneHref: 'tel:+380634419075',
   phoneE164: '+380634419075',

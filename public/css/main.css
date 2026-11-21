@@ -775,3 +775,7 @@ div.dt-container.dt-empty-footer tbody > tr:last-child > * { border-bottom: 1px 
   .topbar, .header, .mobile-bar, .footer__socials, .cta-section, .contacts__map { display: none !important; }
   body { padding-bottom: 0; }
 }
+
+/* Блок «Медично перевірено» на сторінках послуг (E-E-A-T) */
+.reviewed { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: .9375rem; color: var(--text-muted); }
+.reviewed .ph { font-size: 1.15rem; }

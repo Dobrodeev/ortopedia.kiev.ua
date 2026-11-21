@@ -12,5 +12,7 @@ export function registerViewHelpers(partialsDir: string): Promise<void> {
   hbs.registerHelper('uah', (value: number | null) =>
     value == null ? '' : `${new Intl.NumberFormat('uk-UA').format(value)} грн`,
   );
+  /** 2026-11-21 → 21.11.2026 */
+  hbs.registerHelper('dateUa', (iso: string) => (iso ? String(iso).split('-').reverse().join('.') : ''));
   return new Promise((resolve) => hbs.registerPartials(partialsDir, () => resolve()));
 }

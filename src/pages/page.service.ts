@@ -33,7 +33,7 @@ export class PageService {
     const url = this.siteUrl + meta.path;
     const breadcrumbs = meta.breadcrumbs?.length ? [{ name: 'Головна', path: '/' }, ...meta.breadcrumbs] : null;
 
-    const jsonLd: object[] = [this.clinicSchema(data), ...(meta.jsonLd ?? [])];
+    const jsonLd: object[] = [this.clinicSchema(data), this.physicianSchema(data), ...(meta.jsonLd ?? [])];
     if (breadcrumbs) {
       jsonLd.push({
         '@context': 'https://schema.org',
@@ -66,6 +66,31 @@ export class PageService {
     };
   }
 
+  get physicianId(): string {
+    return this.siteUrl + '/pro-nas#doctor';
+  }
+
+  private physicianSchema(data: SiteContent): object {
+    const { site } = data;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Physician',
+      '@id': this.physicianId,
+      name: site.doctorName,
+      description: site.doctorTitle,
+      medicalSpecialty: 'Orthopedic',
+      url: this.siteUrl + '/pro-nas',
+      telephone: site.phoneE164,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: site.streetAddress,
+        addressLocality: site.city,
+        addressCountry: 'UA',
+      },
+      worksFor: { '@id': this.siteUrl + '/#clinic' },
+    };
+  }
+
   private clinicSchema(data: SiteContent): object {
     const { site } = data;
     return {
@@ -92,6 +117,16 @@ export class PageService {
         { '@type': 'AdministrativeArea', name: 'Київська область' },
       ],
       sameAs: (site.socials ?? []).map((s: { url: string }) => s.url).filter(Boolean),
+      priceRange: site.priceRange,
+      openingHoursSpecification: (site.openingHours ?? []).map(
+        (h: { days: string[]; opens: string; closes: string }) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: h.days,
+          opens: h.opens,
+          closes: h.closes,
+        }),
+      ),
+      employee: { '@id': this.physicianId },
       availableService: data.services.map((s) => ({
         '@type': 'MedicalTherapy',
         name: s.title,

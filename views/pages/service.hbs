@@ -94,6 +94,11 @@
         </details>
         {{/each}}
       </div>
+      <p class="reviewed">
+        <i class="ph ph-seal-check" aria-hidden="true"></i>
+        Медично перевірено: <a href="/pro-nas">{{site.doctorName}}</a>, {{site.doctorTitle}}.
+        Оновлено <time datetime="{{site.lastReviewed}}">{{dateUa site.lastReviewed}}</time>.
+      </p>
     </div>
   </section>
 </article>
